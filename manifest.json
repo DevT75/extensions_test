@@ -1,10 +1,10 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "WootzApp Rewards",
   "version": "1.0",
   "description": "WootzApp Rewards",
-  "permissions":[
-  	"https://api-staging-0.gotartifact.com"
+  "host_permissions":[
+  	"https://api-staging-0.gotartifact.com/*"
   ],
   "action": {
     "default_popup": "popup.html",
