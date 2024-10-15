@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "News Headlines",
+    "version": "1.0",
+    "description": "Displays latest news headlines",
+    "host_permissions": [
+        "https://newsapi.org/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "128": "icons/icon128.png"
+    }
+}

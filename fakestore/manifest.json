@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Fakestore Product Lister",
+    "version": "1.0",
+    "description": "Lists products from Fakestore API",
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "host_permissions": [
+        "https://fakestoreapi.com/"
+    ],
+    "icons": {
+        "128": "icons/icon128.png"
+    }
+}

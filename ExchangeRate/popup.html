@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Rates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 15px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            text-align: center;
+        }
+        #rates {
+            margin-top: 20px;
+        }
+        .rate-item {
+            background-color: #ecf0f1;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .rate-item:last-child {
+            margin-bottom: 0;
+        }
+        .currency {
+            font-weight: bold;
+        }
+        .value {
+            color: #27ae60;
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .rate-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .value {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="min-width: 300px; min-height: 500px">
+        <h2>Exchange Rates (USD)</h2>
+        <div id="rates">Loading...</div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
