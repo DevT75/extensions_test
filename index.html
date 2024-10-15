@@ -18,16 +18,23 @@
         }
         ul {
             list-style-type: none;
-            padding-left: 0;
+            padding-left: 20px;
         }
         li {
             margin-bottom: 10px;
         }
         .folder {
+            cursor: pointer;
             font-weight: bold;
         }
-        .file {
-            margin-left: 20px;
+        .folder::before {
+            content: '📁 ';
+        }
+        .folder.open::before {
+            content: '📂 ';
+        }
+        .file::before {
+            content: '📄 ';
         }
     </style>
 </head>
@@ -44,7 +51,7 @@
 
     <script>
         const username = 'DevT75';
-        const repo = 'extensions_test';
+        const repo = 'extenstions_test';
 
         async function fetchRepoContents(path = '') {
             const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/${path}`);
@@ -58,22 +65,28 @@
             const ul = document.createElement('ul');
             parentElement.appendChild(ul);
 
-            // Ensure contents is always an array
             const contentsArray = Array.isArray(contents) ? contents : [contents];
 
             contentsArray.forEach(item => {
                 const li = document.createElement('li');
                 if (item.type === 'dir') {
-                    li.innerHTML = `<span class="folder">📁 ${item.name}</span>`;
-                    li.classList.add('folder');
-                    fetchRepoContents(item.path)
-                        .then(subContents => createFileTree(subContents, li))
-                        .catch(error => {
-                            li.innerHTML += ` (Error: ${error.message})`;
-                        });
+                    li.innerHTML = `<span class="folder">${item.name}</span>`;
+                    li.querySelector('.folder').addEventListener('click', async (e) => {
+                        e.target.classList.toggle('open');
+                        if (!li.querySelector('ul')) {
+                            try {
+                                const subContents = await fetchRepoContents(item.path);
+                                createFileTree(subContents, li);
+                            } catch (error) {
+                                li.innerHTML += ` (Error: ${error.message})`;
+                            }
+                        } else {
+                            li.querySelector('ul').style.display = 
+                                li.querySelector('ul').style.display === 'none' ? 'block' : 'none';
+                        }
+                    });
                 } else {
-                    li.innerHTML = `<span class="file">📄 ${item.name}</span>`;
-                    li.classList.add('file');
+                    li.innerHTML = `<span class="file">${item.name}</span>`;
                 }
                 ul.appendChild(li);
             });
