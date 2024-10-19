@@ -1,7 +1,9 @@
 // Mock chrome.helloWorld if it doesn't exist
 if (!chrome.helloWorld) {
   chrome.helloWorld = {
-    sayHello: () => "Mocked Hello World"
+    sayHello: async () => {
+    	return '{"message":"Mocked Hello World"}'
+    }
   };
 }
 
@@ -28,8 +30,9 @@ function updateDeviceInfo(info) {
 document.addEventListener('DOMContentLoaded', () => {
   // Set up Hello World button
   document.getElementById('sayHelloButton').addEventListener('click', () => {
-    const result = chrome.helloWorld.sayHello();
-    updateHelloResult(result);
+    chrome.helloWorld.sayHello().then((res)=>{
+    	updateHelloResult(JSON.parse(res).message);
+    });
   });
 
   // Fetch Wootz info
