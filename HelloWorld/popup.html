@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World Extension</title>
+  <style>
+    body {
+      width: 300px;
+      height: 400px;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+
+    #sayHelloButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #sayHelloButton:hover {
+      background-color: #45a049;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      min-height: 24px;
+    }
+
+    @media (max-width: 300px) {
+      body {
+        padding: 10px;
+      }
+
+      #sayHelloButton {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+
+      #result {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="sayHelloButton">Say Hello</button>
+  <div id="result"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
