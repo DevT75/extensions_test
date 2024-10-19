@@ -1,6 +1,5 @@
 // Mock chrome.helloWorld if it doesn't exist
-if (typeof chrome === 'undefined' || !chrome.helloWorld) {
-  window.chrome = window.chrome || {};
+if (!chrome.helloWorld) {
   chrome.helloWorld = {
     sayHello: () => "Mocked Hello World"
   };
@@ -29,8 +28,10 @@ function updateDeviceInfo(info) {
 document.addEventListener('DOMContentLoaded', () => {
   // Set up Hello World button
   document.getElementById('sayHelloButton').addEventListener('click', () => {
-    const result = chrome.helloWorld.sayHello();
-    updateHelloResult(result);
+	chrome.helloWorld.sayHello(function(response) {
+	  console.log(response);
+	  updateHelloResult(response);
+	});
   });
 
   // Fetch Wootz info
