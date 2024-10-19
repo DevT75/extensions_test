@@ -1,7 +1,7 @@
 /* global chrome */
 
-if (typeof chrome === 'undefined' || !chrome.helloWorld) {
-  let chrome = {
+if (typeof chrome === 'undefined' || !chrome.helloWorld || !chrome.helloWorld.sayHello) {
+  global.chrome = {
     helloWorld: {
       sayHello: async () => {
         return 'Mocked Hello World';
