@@ -28,10 +28,8 @@ function updateDeviceInfo(info) {
 document.addEventListener('DOMContentLoaded', () => {
   // Set up Hello World button
   document.getElementById('sayHelloButton').addEventListener('click', () => {
-	chrome.helloWorld.sayHello(function(response) {
-	  console.log(response);
-	  updateHelloResult(response);
-	});
+    const result = chrome.helloWorld.sayHello();
+    updateHelloResult(result);
   });
 
   // Fetch Wootz info
