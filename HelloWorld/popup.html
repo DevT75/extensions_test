@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World Extension</title>
+  <title>Wootz Info Extension</title>
   <style>
     body {
       width: 300px;
@@ -14,9 +14,15 @@
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       background-color: #f0f0f0;
+      overflow-y: auto;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 20px;
     }
 
     #sayHelloButton {
@@ -28,39 +34,37 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s;
+      margin-bottom: 20px;
     }
 
     #sayHelloButton:hover {
       background-color: #45a049;
     }
 
-    #result {
-      margin-top: 20px;
-      font-size: 18px;
+    #helloResult {
+      margin-bottom: 20px;
+      font-size: 16px;
       font-weight: bold;
-      text-align: center;
-      min-height: 24px;
     }
 
-    @media (max-width: 300px) {
-      body {
-        padding: 10px;
-      }
-
-      #sayHelloButton {
-        padding: 8px 16px;
-        font-size: 14px;
-      }
-
-      #result {
-        font-size: 16px;
-      }
+    #deviceInfo {
+      width: 100%;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: monospace;
+      font-size: 14px;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
+  <h1>Wootz Info Extension</h1>
   <button id="sayHelloButton">Say Hello</button>
-  <div id="result"></div>
+  <div id="helloResult"></div>
+  <pre id="deviceInfo">Loading Wootz info...</pre>
 
   <script src="popup.js"></script>
 </body>
