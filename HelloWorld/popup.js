@@ -1,6 +1,6 @@
 /* global chrome */
 
-if (typeof chrome === 'undefined' || !chrome.helloWorld || !chrome.helloWorld.sayHello) {
+if (typeof chrome === 'undefined' || !chrome.helloWorld) {
   chrome = {
     helloWorld: {
       sayHello: async () => {
