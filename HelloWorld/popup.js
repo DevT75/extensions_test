@@ -32,11 +32,21 @@ function updateDeviceInfo(info) {
 // Fetch and display device info when the popup loads
 document.addEventListener('DOMContentLoaded', () => {
   // Set up Hello World button
-  document.getElementById('sayHelloButton').addEventListener('click', async () => {
+  /*document.getElementById('sayHelloButton').addEventListener('click', async () => {
   	const res = await chrome.helloWorld.sayHello();
 	result = JSON.parse(res);
   	updateHelloResult(result.message);
         console.log('Hello World Message:', result.message);
+  });*/
+
+  chrome.helloWorld.sayHello().then((res) => {
+    try {
+      const parsedInfo = JSON.parse(res);
+      updateHelloResult(JSON.stringify(parsedInfo, null, 2));
+    } catch (error) {
+      console.error('Failed to parse sayhello return value:', error);
+      updateDeviceInfo('Error fetching sayHello return value.');
+    }
   });
 
   // Fetch Wootz info
