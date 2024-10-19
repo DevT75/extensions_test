@@ -32,12 +32,11 @@ function updateDeviceInfo(info) {
 // Fetch and display device info when the popup loads
 document.addEventListener('DOMContentLoaded', () => {
   // Set up Hello World button
-  document.getElementById('sayHelloButton').addEventListener('click', () => {
-  	chrome.helloWorld.sayHello().then(response => {
-  		const result = JSON.parse(response);
-  		updateHelloResult(result.message);
-        	console.log('Hello World Message:', result.message);
-  	});
+  document.getElementById('sayHelloButton').addEventListener('click', async () => {
+  	const res = await chrome.helloWorld.sayHello();
+	result = JSON.parse(res);
+  	updateHelloResult(result.message);
+        console.log('Hello World Message:', result.message);
   });
 
   // Fetch Wootz info
