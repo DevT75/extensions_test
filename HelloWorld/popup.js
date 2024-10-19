@@ -33,7 +33,7 @@ function updateDeviceInfo(info) {
 document.addEventListener('DOMContentLoaded', () => {
   // Set up Hello World button
   document.getElementById('sayHelloButton').addEventListener('click', () => {
-  	chrome.wootz.helloWorld().then(response => {
+  	chrome.helloWorld.sayHello().then(response => {
   		const result = JSON.parse(response);
   		updateHelloResult(result.message);
         	console.log('Hello World Message:', result.message);
