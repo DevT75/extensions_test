@@ -12,6 +12,9 @@ if (!chrome.wootz) {
   chrome.wootz = {
     info: async () => {
       return '{"mock":"device", "info":"wootz", "long": "string to testttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt"}';
+    },
+    helloWorld: async () => {
+    	return '{"message":"Mocked Hello World!"}';
     }
   };
 }
@@ -30,9 +33,11 @@ function updateDeviceInfo(info) {
 document.addEventListener('DOMContentLoaded', () => {
   // Set up Hello World button
   document.getElementById('sayHelloButton').addEventListener('click', () => {
-    chrome.helloWorld.sayHello().then((res)=>{
-    	updateHelloResult(JSON.parse(res).message);
-    });
+  	chrome.wootz.helloWorld().then(response => {
+  		const result = JSON.parse(response);
+  		updateHelloResult(result.message);
+        	console.log('Hello World Message:', result.message);
+  	});
   });
 
   // Fetch Wootz info
