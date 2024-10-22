@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Wootz Test Extension",
+  "version": "1.0",
+  "description": "A simple extension to test the chrome.wootz.showDialog() function",
+  "permissions": [],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
