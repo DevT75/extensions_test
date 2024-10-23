@@ -3,7 +3,11 @@
   "name": "Wootz Test Extension",
   "version": "1.0",
   "description": "A simple extension to test the chrome.wootz.showDialog() function",
-  "permissions": [],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
   "action": {
     "default_popup": "popup.html"
   }
