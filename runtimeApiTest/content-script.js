@@ -1,3 +1,5 @@
+console.log("This log is from content-script")
+
 function sendPageInfo() {
   const pageInfo = {
     title: document.title,
