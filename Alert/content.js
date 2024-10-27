@@ -1,0 +1,1 @@
+alert("Yey, content script is working!");

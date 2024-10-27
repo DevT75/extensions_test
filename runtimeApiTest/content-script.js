@@ -1,1 +1,1 @@
-console.log("This log is from content-script")
+alert("Content-script working!!!");
